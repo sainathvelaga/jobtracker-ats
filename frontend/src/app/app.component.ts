@@ -3,19 +3,22 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <div class="header">
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <div>JobTracker ATS</div>
-        <div>
-          <a routerLink="/" style="color:#fff;margin-right:12px">Dashboard</a>
-          <a routerLink="/ats" style="color:#fff;margin-right:12px">ATS Checker</a>
-          <a routerLink="/login" style="color:#fff">Login</a>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand">JobTracker ATS</div>
+          <nav class="nav-links">
+            <a class="nav-link" routerLink="/">Dashboard</a>
+            <a class="nav-link" routerLink="/ats">ATS Checker</a>
+            <a class="nav-link" routerLink="/login">Login</a>
+          </nav>
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <router-outlet></router-outlet>
+      </header>
+
+      <main class="page">
+        <router-outlet></router-outlet>
+      </main>
     </div>
   `
 })
-export class AppComponent { }
+export class AppComponent {}
