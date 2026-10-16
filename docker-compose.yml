@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:7
+    container_name: jobtracker-mongo
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  app:
+    build:
+      context: .
+    container_name: jobtracker-app
+    depends_on:
+      - mongo
+    environment:
+      SPRING_DATA_MONGODB_HOST: mongo
+      SPRING_DATA_MONGODB_PORT: 27017
+      SPRING_DATA_MONGODB_DATABASE: jobtracker
+      APP_JWT_SECRET: change-me-to-a-secure-random-key
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+
+volumes:
+  mongo-data:
