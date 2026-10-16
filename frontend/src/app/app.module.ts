@@ -9,13 +9,19 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AtsComponent } from './ats/ats.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { ApplicationFormComponent } from './application-form/application-form.component';
+import { ApplicationsListComponent } from './applications-list/applications-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    AtsComponent
+    AtsComponent,
+    SidebarComponent,
+    ApplicationFormComponent,
+    ApplicationsListComponent
   ],
   imports: [
     BrowserModule,

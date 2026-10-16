@@ -10,6 +10,18 @@ export class ApiService {
     return this.http.get<any[]>(`${this.base}/applications`);
   }
 
+  getJobs() {
+    return this.http.get<any[]>(`${this.base}/jobs`);
+  }
+
+  createApplication(payload: any) {
+    return this.http.post<any>(`${this.base}/applications`, payload);
+  }
+
+  updateApplicationStatus(id: string, status: string) {
+    return this.http.patch<any>(`${this.base}/applications/${id}/status`, { status });
+  }
+
   checkAts(payload: any) {
     return this.http.post<any>(`${this.base}/ats/check`, payload);
   }
